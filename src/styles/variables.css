@@ -1,0 +1,31 @@
+:root {
+  --bg-main: #b7c4cf;
+  --bg-secondary: white;
+  --bg-finance: white;
+  --bg-finance-hover: #3b82f6;
+
+  --bg-form: #0c557a9e;
+  --form-text: white;
+  --text-form: white;
+
+  --bg-button: white;
+  --button-text: black;
+
+  --text-p: black;
+  --text-hover: #0c567a;
+  --text-over-main: #0c567a;
+  --text-over-hours: black;
+
+  --toast-bg: #1f2937;
+  --toast-text: white;
+  --toast-success: #237822;
+  --toast-error: #991b1b;
+  --toast-warning: #9f9200;
+  --toast-info: #22a0c9;
+
+  --icon-color: #0c567a;
+  --icon-active: #facc15;
+  --icon-default: #0c567a;
+  --toggle-color: #0c567a;
+  --border-color: #0c567a;
+}

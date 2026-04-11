@@ -1,0 +1,137 @@
+.card {
+  background: white;
+
+  padding: 18px;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.progress {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+
+  border: none;
+  border-radius: 6px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+.completeBtn {
+  background: #22c55e;
+  color: white;
+}
+
+.completeBtn:hover {
+  background: #16a34a;
+}
+
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+}
+
+.dateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.progressBtn {
+  background: #3b82f6;
+  color: white;
+
+  border: none;
+
+  padding: 6px 10px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.progressBtn:hover {
+  background: #2563eb;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+
+  .header h3 {
+    font-size: 18px;
+  }
+
+  .progress {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    padding: 22px;
+    gap: 14px;
+  }
+
+  .header h3 {
+    font-size: 20px;
+  }
+
+  .progress {
+    font-size: 15px;
+  }
+}

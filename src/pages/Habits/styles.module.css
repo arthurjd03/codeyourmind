@@ -1,0 +1,114 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header h1 {
+  color: var(--text-over-main);
+  text-align: center;
+}
+.header p {
+  color: var(--text-p);
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background-color: white;
+  padding: 18px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.createBtn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.createBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.water {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.dailyBtn {
+  background-color: #10b981;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.completed {
+  background-color: #16a34a;
+}
+
+.waterText {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 300px;
+  }
+}

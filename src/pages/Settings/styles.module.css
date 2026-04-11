@@ -1,0 +1,74 @@
+.futureCard {
+  background-color: #020617;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #3b82f6;
+}
+
+.blur {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #3b82f6;
+  filter: blur(80px);
+  opacity: 0.1;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconWrapper {
+  color: #3b82f6;
+  margin-bottom: 16px;
+  animation: calibrate 2s ease-in-out infinite;
+}
+
+.title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 300px;
+  font-style: italic;
+}
+
+.description span {
+  color: #3b82f6;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@keyframes calibrate {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg) scale(1.05);
+  }
+}

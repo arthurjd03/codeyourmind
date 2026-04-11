@@ -1,0 +1,27 @@
+:root[data-theme="dark"] {
+  --bg-main: #22384d;
+  --bg-secondary: #1c293c;
+  --bg-finance: #111827;
+  --bg-finance-hover: white;
+
+  --bg-form: white;
+  --form-text: black;
+  --text-form: white;
+
+  --bg-button: #0c557ac3;
+  --button-text: black;
+
+  --text-p: white;
+  --text-hover: white;
+  --text-over-main: white;
+  --text-over-hours: white;
+
+  --toast-bg: white;
+  --toast-text: #1f2937;
+
+  --icon-color: white;
+  --icon-active: #facc15;
+  --icon-default: #0c567a;
+  --toggle-color: #0c567a;
+  --border-color: white;
+}

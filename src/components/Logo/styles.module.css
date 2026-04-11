@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  background-color: var(--bg-secondary);
+}
+.logo > p {
+  color: var(--text-over-main);
+  font-weight: bold;
+}
+.logoImg {
+  height: 48px;
+}
+
