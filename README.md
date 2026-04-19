@@ -151,7 +151,7 @@ O projeto aplica conceitos importantes do ecossistema **React**:
 Clone o repositório:
 
 
-git clone https://github.com/seu-usuario/codeyourmind.git
+git clone https://github.com/arthurjd03/codeyourmind.git
 
 
 Entre na pasta do projeto:
@@ -204,6 +204,4 @@ Estudante de Engenharia de Software e desenvolvedor focado em front-end.
 🔗 [LinkedIn](https://linkedin.com/in/arthurjose01)
 
 ---
-
-
 </p>
