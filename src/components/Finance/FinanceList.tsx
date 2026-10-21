@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import { ConfirmModal } from "../ConfirmModal";
 import { useState } from "react";
 import type { TransactionModel } from "../../models/TransactionModel";
-import { formatCurrencyBR } from "../../utils/formatCurrency";
+import { formatCurrencyBR } from "../../utils/format";
 
 type Props = {
   transacoes: TransactionModel[];

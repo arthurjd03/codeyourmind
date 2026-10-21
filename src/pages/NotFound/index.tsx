@@ -5,7 +5,6 @@ import styles from "./styles.module.css";
 export function NotFound() {
   return (
     <section className={styles.container}>
-      {/* Elementos decorativos de fundo */}
       <div className={styles.blur} />
 
       <div className={styles.content}>

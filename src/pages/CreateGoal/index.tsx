@@ -3,14 +3,11 @@ import styles from "./styles.module.css";
 import { toastifyAdapter } from "../../adapters/toastifyAdapter";
 
 import { MainTemplate } from "../../templates/MainTemplate";
-import { Form } from "../../components/MainForm/Form";
-import { FormField } from "../../components/MainForm/FormField";
-import { Textarea } from "../../components/MainForm/Textarea";
-import { Select } from "../../components/MainForm/Select";
 import { useGoals } from "../../contexts/GoalsContext";
 import type { GoalModel, GoalCategory } from "../../models/GoalModel";
 import { Border } from "../../components/Border";
 import { BackButton } from "../../components/BackButton";
+import { getTodayDate } from "../../utils/format";
 
 export function CreateGoal() {
   const { addGoal } = useGoals();
@@ -18,9 +15,7 @@ export function CreateGoal() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState<GoalCategory>("pessoal");
 
-  const [startDate, setStartDate] = useState(
-    new Date().toISOString().split("T")[0],
-  );
+  const [startDate, setStartDate] = useState(getTodayDate());
   const [endDate, setEndDate] = useState("");
 
   function handleCreateGoal(e: React.FormEvent) {
@@ -43,13 +38,12 @@ export function CreateGoal() {
 
       createdAt: new Date().toISOString(),
     };
-    setStartDate("");
-    setEndDate("");
     addGoal(newGoal);
-
     toastifyAdapter.success(`Meta: (${title}) criada com sucesso`);
 
     // limpar campos
+    setStartDate(getTodayDate());
+    setEndDate("");
     setTitle("");
     setCategory("pessoal");
   }
@@ -59,57 +53,82 @@ export function CreateGoal() {
       <div className={styles.container}>
         <Border>
           <header className={styles.header}>
-            <h1>Criar nova meta</h1>
-            <p>Disciplina diária é o caminho para resultados duradouros.</p>
+            <h1 className={styles.title}>Criar nova meta</h1>
+            <p className={styles.subtitle}>
+              Disciplina diária é o caminho para resultados duradouros.
+            </p>
           </header>
         </Border>
-        <section className={styles.arrow}>
-          <BackButton />
-        </section>
+          <section className={styles.arrow}>
+            <BackButton />
+          </section>
+
+        <form onSubmit={handleCreateGoal} className={styles.form}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="title" className={styles.label}>
+              Título da meta
+            </label>
+            <textarea
+              id="title"
+              name="title"
+              className={styles.textarea}
+              maxLength={60}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Ex: Aprender React avançado"
+              rows={2}
+            />
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label htmlFor="category" className={styles.label}>
+              Categoria
+            </label>
+            <select
+              id="category"
+              className={styles.select}
+              value={category}
+              onChange={(e) => setCategory(e.target.value as GoalCategory)}
+            >
+              <option value="pessoal">Pessoal</option>
+              <option value="profissional">Profissional</option>
+              <option value="estudos">Estudos</option>
+            </select>
+          </div>
+
+          <div className={styles.dateRow}>
+            <div className={styles.fieldGroup}>
+              <label htmlFor="startDate" className={styles.label}>
+                Data de início
+              </label>
+              <input
+                id="startDate"
+                className={styles.inputDate}
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.fieldGroup}>
+              <label htmlFor="endDate" className={styles.label}>
+                Data final
+              </label>
+              <input
+                id="endDate"
+                className={styles.inputDate}
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <button type="submit" className={styles.submitButton}>
+            Criar meta
+          </button>
+        </form>
       </div>
-
-      <Form onSubmit={handleCreateGoal}>
-        <FormField label="Título da meta" htmlFor="title">
-          <Textarea
-            id="title"
-            name="title"
-            maxLength={60}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Ex: Aprender React avançado"
-            rows={2}
-          />
-        </FormField>
-        <FormField label="Categoria">
-          <Select
-            value={category}
-            onChange={(e) => setCategory(e.target.value as GoalCategory)}
-          >
-            <option value="pessoal">Pessoal</option>
-            <option value="profissional">Profissional</option>
-            <option value="estudos">Estudos</option>
-          </Select>
-        </FormField>
-
-        <FormField label="Data de início">
-          <input
-            className="calendar"
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-        </FormField>
-
-        <FormField label="Data de término">
-          <input
-            className="calendar"
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-          />
-        </FormField>
-        <button type="submit">Criar meta</button>
-      </Form>
     </MainTemplate>
   );
 }

@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { formatCurrencyBR } from "../../utils/formatCurrency";
+import { formatCurrencyBR } from "../../utils/format";
 
 type Props = {
   entrada: number;
