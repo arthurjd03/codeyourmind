@@ -1,160 +1,296 @@
-.cards {
+section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 0 24px;
-  margin: 0 auto 20px;
-  list-style: none;
-}
-
-.card {
-  width: 170px;
-  height: 180px;
-}
-
-.card a {
+  flex-direction: column;
   width: 100%;
-  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
 
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
+  text-align: center;
+  margin: 32px 0 28px;
   gap: 10px;
+}
+
+.title {
+  position: relative;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-over-main);
+  text-wrap: balance;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, var(--toggle-color), var(--border-color));
+  border-radius: 999px;
+}
+
+.subtitle {
+  max-width: 300px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-p);
+  text-wrap: balance;
+}
+
+/* Grid: 2 colunas já no mobile, todos os cards com a mesma altura */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  opacity: 0;
+  animation: card-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.12s; }
+.card:nth-child(3) { animation-delay: 0.19s; }
+.card:nth-child(4) { animation-delay: 0.26s; }
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card a {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  padding: 36px 14px 20px;
   text-align: center;
   text-decoration: none;
 
   color: var(--text-over-main);
   background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
 
-  border: 3px solid var(--border-color);
-  border-radius: 24px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 20px rgba(0, 0, 0, 0.04);
 
-  position: relative;
-
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.card a:hover {
-  transform: translateY(-6px);
-}
-
-.card > a > p {
-  font-size: 1.2rem;
-  font-weight: 600;
-
-  color: var(--text-over-main);
-}
-
-.number {
+/* Brilho suave que aparece no hover/foco */
+.card a::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 80% at 50% 0%,
+    color-mix(in srgb, var(--toggle-color) 18%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  top: -10px;
-  left: -10px;
+.card a:focus-visible {
+  outline: 2px solid var(--toggle-color);
+  outline-offset: 3px;
+}
 
-  width: 34px;
-  height: 34px;
+.card a:active {
+  transform: scale(0.98);
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Ícone dentro de uma "caixinha" */
+.toggle {
+  flex-shrink: 0;
+  box-sizing: content-box;
+  width: 28px;
+  height: 28px;
+  padding: 10px;
+  border-radius: 14px;
+  color: var(--toggle-color);
+  background: color-mix(in srgb, var(--toggle-color) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--toggle-color) 25%, transparent);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
 
-  font-size: 0.9rem;
-  font-weight: 900;
-
-  border-radius: 50%;
-
-  background-color: var(--toggle-color);
-  color: white;
+.card a > p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-over-main);
+  text-wrap: balance;
 }
 
 .description {
-  font-size: 0.85rem;
-  line-height: 1.4;
-
-  color: var(--text-p);
-
-  max-width: 160px;
-}
-
-.toggle {
-  color: var(--toggle-color);
-}
-
-.header {
-  text-align: center;
-  margin: 32px 0 36px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-
-  color: var(--text-over-main);
-
-  position: relative;
-}
-
-
-.title::after {
-  content: "";
   display: block;
-
-  width: 100%;
-  height: 3px;
-
-  margin: 10px auto 0;
-
-  background-color: var(--border-color);
-  border-radius: 999px;
-}
-
-.subtitle {
-  max-width: 320px;
-
-  margin-top: 4px;
-
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   line-height: 1.5;
-
   color: var(--text-p);
-
-  opacity: 0.85;
 }
 
-@media (min-width: 768px) {
-  .cards {
+/* Número da etapa: discreto no canto superior direito */
+.number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  border-radius: 50%;
+
+  background-color: var(--bg-main);
+  color: var(--toggle-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Hover só onde existe mouse (evita hover "preso" no touch) */
+@media (hover: hover) {
+  .card a:hover {
+    transform: translateY(-4px);
+    border-color: var(--toggle-color);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.04),
+      0 16px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .card a:hover::before { opacity: 1; }
+
+  .card a:hover .toggle {
+    transform: scale(1.08) rotate(-4deg);
+    background: color-mix(in srgb, var(--toggle-color) 22%, transparent);
+  }
+}
+
+/* Telas muito estreitas: volta para 1 coluna, card horizontal */
+@media (max-width: 359px) {
+  .cards { grid-template-columns: 1fr; }
+
+  .card a {
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: left;
+    padding: 20px 44px 20px 16px;
+  }
+}
 
-    gap: 2.5rem;
-  }
 
-  .card {
-    width: 220px;
-    height: 220px;
-  }
-  .card > a > p {
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
-  .description {
-    font-size: 1rem;
-  }
-  .title {
-    font-size: 2.4rem;
-  }
+/* ==========================================
+   TABLETS (a partir de 600px)
+   ========================================== */
+
+@media (min-width: 600px) {
+  section { padding: 0 24px 56px; }
+
+  .header { margin: 48px 0 40px; }
 
   .subtitle {
+    max-width: 440px;
     font-size: 1.05rem;
+  }
+
+  .cards { gap: 20px; }
+
+  .card a {
+    gap: 12px;
+    padding: 40px 20px 28px;
+    border-radius: 24px;
+  }
+
+  .toggle {
+    width: 32px;
+    height: 32px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .card a > p { font-size: 1.1rem; }
+  .description { font-size: 0.88rem; }
+}
+
+
+/* ==========================================
+   DESKTOP (a partir de 1024px): 4 colunas
+   ========================================== */
+
+@media (min-width: 1024px) {
+  .header { margin: 64px 0 56px; }
+
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .card a {
+    padding: 44px 24px 32px;
+    gap: 14px;
+  }
+
+  .card a > p { font-size: 1.2rem; }
+
+  .description {
+    max-width: 200px;
+    font-size: 0.92rem;
+  }
+
+  /* Número flutuante na ponta do card */
+  .number {
+    top: -12px;
+    left: -12px;
+    right: auto;
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+    background-color: var(--toggle-color);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .card a,
+  .card a::before,
+  .toggle {
+    transition: none;
   }
 }

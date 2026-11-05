@@ -26,6 +26,7 @@
 [data-theme="light"] .themeIcon {
   color: var(--icon-default);
 }
+
 @media (min-width: 768px) {
   .menuLink::after {
     content: "";

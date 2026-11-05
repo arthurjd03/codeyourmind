@@ -1,31 +1,39 @@
 :root {
-  --bg-main: #b7c4cf;
-  --bg-secondary: white;
-  --bg-finance: white;
-  --bg-finance-hover: #3b82f6;
+  /* Fundo principal aconchegante (tom bege-cafezado claro) */
+  --bg-main: #dfdcd8;
+  
+  /* Superfícies e cards em tom creme suave e encorpado */
+  --bg-secondary: #f8f6f0;
+  --bg-finance: #f8f6f0;
+  --bg-finance-hover: #ede8dd;
 
-  --bg-form: #0c557a9e;
-  --form-text: white;
-  --text-form: white;
+  /* Formulário com tom café profundo/grafite */
+  --bg-form: #1a2942;
+  --form-text: #f8f6f0;
+  --text-form: #f8f6f0;
 
-  --bg-button: white;
-  --button-text: black;
+  /* Botão principal em verde Jade fechado/elegante */
+  --bg-button: #1a2942;
+  --button-text: #ffffff;
 
-  --text-p: black;
-  --text-hover: #0c567a;
-  --text-over-main: #0c567a;
-  --text-over-hours: black;
+  /* Tipografia em carvão quente e acentuada */
+  --text-p: #1a2942;
+  --text-hover: #1a2942;
+  --text-over-main: #1a2942;
+  --text-over-hours: #1c1816;
 
-  --toast-bg: #1f2937;
-  --toast-text: white;
-  --toast-success: #237822;
-  --toast-error: #991b1b;
-  --toast-warning: #9f9200;
-  --toast-info: #22a0c9;
+  /* Toasts sofisticados */
+  --toast-bg: #1a2942;
+  --toast-text: #f8f6f0;
+  --toast-success: #2e6648;
+  --toast-error: #8c2a2a;
+  --toast-warning: #9e731e;
+  --toast-info: #226e97;
 
-  --icon-color: #0c567a;
-  --icon-active: #facc15;
-  --icon-default: #0c567a;
-  --toggle-color: #0c567a;
-  --border-color: #0c567a;
+  /* Ícones, botões e bordas quentes */
+  --icon-color: #226e97;
+  --icon-active: #d99b26;
+  --icon-default: #070707;
+  --toggle-color: #226e97;
+  --border-color: #226e97;
 }

@@ -13,15 +13,16 @@
 
   z-index: 1;
 }
+
 .border::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 3px;
 
-  background: linear-gradient(270deg, #00d4ff, #3b82f6, #00ffa3, #00d4ff);
+  background: linear-gradient(270deg, #0284c7, #2563eb, #0d9488, #0284c7);
   background-size: 400% 400%;
 
   animation: borderMove 8s ease infinite;
@@ -37,6 +38,7 @@
 
   z-index: -1;
 }
+
 @keyframes borderMove {
   0% {
     background-position: 0% 50%;
@@ -48,6 +50,6 @@
 
 .header {
   box-shadow:
-    0 0 10px rgba(0, 212, 255, 0.3),
-    0 0 20px rgba(59, 130, 246, 0.2);
+    0 4px 20px -2px rgba(2, 132, 199, 0.15),
+    0 2px 6px -1px rgba(13, 148, 136, 0.1);
 }

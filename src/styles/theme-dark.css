@@ -1,29 +1,35 @@
 :root[data-theme="dark"] {
-  --bg-main: #22384d;
-  --bg-secondary: #1c293c;
-  --bg-finance: #111827;
-  --bg-finance-hover: white;
+  /* Fundos em camadas profundas */
+  --bg-main: #0b1329;
+  --bg-secondary: #131f37;
+  --bg-finance: #1a2942;
+  --bg-finance-hover: #243656;
 
-  --bg-form: white;
-  --form-text: black;
-  --text-form: white;
+  /* Formulário e textos internos */
+  --bg-form: #e0ded9;
+  --form-text: #1e293b;
+  --text-form: #f8fafc;
 
-  --bg-button: #0c557ac3;
-  --button-text: black;
+  /* Botão principal (destaque azul legível) */
+  --bg-button: #0c567a;
+  --button-text: #0f172a;
 
-  --text-p: white;
-  --text-hover: white;
-  --text-over-main: white;
-  --text-over-hours: white;
+  /* Tipografia (off-white) */
+  --text-p: #fff;
+  --text-hover: #226e97;
+  --text-over-main: #ffff;
+  --text-over-hours: #cbd5e1;
 
-  --toast-bg: white;
-  --toast-text: #1f2937;
+  /* Toasts no tema escuro */
+  --toast-bg: #1e293b;
+  --toast-text: #ffff;
 
-  --icon-color: white;
+  /* Ícones, botões e bordas */
+  --icon-color: #ffff;
   --icon-active: #facc15;
-  --icon-default: #0c567a;
-  --toggle-color: #0c567a;
-  --border-color: white;
+  --icon-default: #94a3b8;
+  --toggle-color: #226e97;
+  --border-color: #ffff;
 
-  --focus-color: #0c567a;
+  --focus-color: #38bdf8;
 }

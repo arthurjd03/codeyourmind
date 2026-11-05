@@ -1,49 +1,125 @@
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
 }
 
+/* Hero: cartão com brilho atrás da logo */
 .entry {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
+
+  padding: 32px 24px;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      60% 50% at 50% 0%,
+      color-mix(in srgb, var(--toggle-color) 20%, transparent),
+      transparent 70%
+    ),
+    var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
-.title {
-  color: var(--text-over-main);
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.text {
-  font-size: 0.9rem;
-  color: var(--text-p);
-  line-height: 1.5;
-  letter-spacing: 1.2px;
+/* No mobile a logo aparece primeiro */
+.logo-wrap {
+  order: -1;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--toggle-color) 10%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--toggle-color) 25%, transparent),
+    0 0 48px color-mix(in srgb, var(--toggle-color) 30%, transparent);
+  animation: float 6s ease-in-out infinite;
 }
 
 .logo {
-  width: clamp(120px, 25vw, 200px);
+  display: block;
+  width: clamp(110px, 32vw, 180px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 7vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-over-main);
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--text-p);
+  text-wrap: pretty;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ==========================================
+   TABLET / DESKTOP (a partir de 768px)
+   ========================================== */
+
 @media (min-width: 768px) {
+  .container { padding: 24px; }
+
   .entry {
-    flex-direction: row;
+    flex-direction: column;            /* dica: texto à esquerda e logo à direita, lado a lado */
     justify-content: space-between;
-    align-items: center;
+    gap: 48px;
+    padding: 56px;
+    text-align: left;
+    border-radius: 32px;
+    background:
+      radial-gradient(
+        50% 70% at 85% 50%,
+        color-mix(in srgb, var(--toggle-color) 22%, transparent),
+        transparent 70%
+      ),
+      var(--bg-secondary);
   }
 
-  .title {
-    font-size: 3rem;
+  .logo-wrap { order: 0; }        /* dica: volta para a posição natural (0) */
+
+  .content {
+    align-items: flex-start;
+    gap: 18px;
+    flex: 1;
   }
 
-  .text {
-    font-size: 1.1rem;
-  }
+  .logo { width: 200px; }
+}
 
-  .logo {
-    width: 200px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .logo-wrap { animation: none; }
 }

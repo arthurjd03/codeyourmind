@@ -1,11 +1,9 @@
 import styles from "./styles.module.css";
 import hero from "../../assets/img/logo.png";
-import { Border } from "../Border";
 
 export function Hero() {
   return (
     <div className={styles.container}>
-      <Border>
         <section className={styles.entry}>
           <div>
             <h1 className={styles.title}>
@@ -23,7 +21,6 @@ export function Hero() {
             className={styles.logo}
           />
         </section>
-      </Border>
     </div>
   );
 }

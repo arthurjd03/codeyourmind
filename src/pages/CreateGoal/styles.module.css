@@ -59,7 +59,7 @@
 }
 
 .label {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-p);
   letter-spacing: 0.02em;
@@ -86,7 +86,7 @@
 .textarea:hover,
 .select:hover,
 .inputDate:hover {
-  border-color: color-mix(in srgb, var(--focus-color) 45%, var(--border-color));
+  border-color: color-mix(in srgb, var(--focus-color) 85%, var(--border-color));
 }
 
 .textarea:focus,
@@ -125,6 +125,9 @@
 
 /* Botão  */
 .submitButton {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   margin-top: 0.5rem;
   width: 100%;
   background-color: var(--bg-button);
@@ -159,7 +162,6 @@
   outline-offset: 3px;
 }
 
-
 @media (min-width: 640px) {
   .container {
     gap: 1.5rem;
@@ -184,7 +186,9 @@
     width: 100%;
     margin: 0 auto;
   }
-
+  .label {
+    font-size: 1.3rem;
+  }
   .dateRow {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -195,15 +199,15 @@
     width: auto;
     align-self: flex-end;
     padding: 0.9rem 2.25rem;
+    font-size: 1.1rem;
   }
 }
-
 
 @media (min-width: 1024px) {
   .title {
     font-size: 2rem;
   }
-
+  
   .form {
     padding: 2.5rem;
     gap: 1.75rem;
@@ -211,7 +215,7 @@
   }
 
   .label {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
   }
 
   .textarea,
@@ -222,7 +226,7 @@
   }
 
   .submitButton {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
