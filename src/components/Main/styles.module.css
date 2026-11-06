@@ -1,4 +1,4 @@
-section {
+.page {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -100,7 +100,7 @@ section {
     box-shadow 0.3s ease;
 }
 
-/* Brilho suave que aparece no hover/foco */
+/* Brilho suave no hover/foco */
 .card a::before {
   content: "";
   position: absolute;
@@ -156,7 +156,7 @@ section {
   color: var(--text-p);
 }
 
-/* Número da etapa: discreto no canto superior direito */
+/* Número da etapa: no canto superior direito */
 .number {
   position: absolute;
   top: 10px;
@@ -207,12 +207,10 @@ section {
 }
 
 
-/* ==========================================
-   TABLETS (a partir de 600px)
-   ========================================== */
+/* TABLETS (a partir de 600px) */
 
 @media (min-width: 600px) {
-  section { padding: 0 24px 56px; }
+  .page { padding: 0 24px 56px; }
 
   .header { margin: 48px 0 40px; }
 
@@ -241,9 +239,7 @@ section {
 }
 
 
-/* ==========================================
-   DESKTOP (a partir de 1024px): 4 colunas
-   ========================================== */
+/* DESKTOP (a partir de 1024px): 4 colunas */
 
 @media (min-width: 1024px) {
   .header { margin: 64px 0 56px; }
@@ -263,20 +259,6 @@ section {
   .description {
     max-width: 200px;
     font-size: 0.92rem;
-  }
-
-  /* Número flutuante na ponta do card */
-  .number {
-    top: -12px;
-    left: -12px;
-    right: auto;
-    width: 34px;
-    height: 34px;
-    font-size: 0.85rem;
-    background-color: var(--toggle-color);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   }
 }
 

@@ -94,7 +94,7 @@
   .container { padding: 24px; }
 
   .entry {
-    flex-direction: column;            /* dica: texto à esquerda e logo à direita, lado a lado */
+    flex-direction: column;            /*texto à esquerda e logo à direita, lado a lado */
     justify-content: space-between;
     gap: 48px;
     padding: 56px;
@@ -109,7 +109,7 @@
       var(--bg-secondary);
   }
 
-  .logo-wrap { order: 0; }        /* dica: volta para a posição natural (0) */
+  .logo-wrap { order: 0; }        /* volta para a posição natural (0) */
 
   .content {
     align-items: flex-start;

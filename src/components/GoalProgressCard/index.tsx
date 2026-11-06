@@ -39,7 +39,7 @@ export function GoalProgressCard({ goal }: Props) {
 
     setIsWaiting(true);
 
-    // ✅ META COM CALENDÁRIO
+    //  META COM CALENDÁRIO
     if (goal.startDate && goal.endDate) {
       if (completedDays >= totalDays) {
         toastifyAdapter.info("Todos os dias já foram marcados.");
@@ -62,7 +62,7 @@ export function GoalProgressCard({ goal }: Props) {
       return;
     }
 
-    // 🔥 META SEM CALENDÁRIO (NOVO COMPORTAMENTO)
+    //  META SEM CALENDÁRIO (NOVO COMPORTAMENTO)
     if (goal.progress >= 100) {
       toastifyAdapter.info("Meta já concluída.");
       setTimeout(() => setIsWaiting(false), TOAST_DURATION + 500);

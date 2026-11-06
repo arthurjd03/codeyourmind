@@ -18,14 +18,14 @@ export function ProgressPage() {
     setOpenCategory((prev) => (prev === category ? null : category));
   }
 
-  // 🔥 ÍCONES FORA DO MAP (melhor prática)
+  //  ÍCONES FORA DO MAP (melhor prática)
   function renderIcon(category: GoalCategory) {
     if (category === "pessoal") return <User size={22} />;
     if (category === "profissional") return <Briefcase size={22} />;
     if (category === "estudos") return <Book size={22} />;
   }
 
-  // 🔥 OTIMIZAÇÃO (evita vários filters)
+  // OTIMIZAÇÃO (evita vários filters)
   const goalsByCategory = goals.reduce(
     (acc, goal) => {
       acc[goal.category].push(goal);
@@ -55,9 +55,9 @@ export function ProgressPage() {
           </header>
         </Border>
         
-      <section>
+      <>
         <BackButton />
-      </section>
+      </>
 
         <div className={styles.summary}>
           <div className={styles.summaryItem}>

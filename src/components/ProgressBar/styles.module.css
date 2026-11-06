@@ -1,17 +1,54 @@
 .container {
+  position: relative;
   width: 100%;
   height: 10px;
-
-  background-color: #e5e7eb;
-
-  border-radius: 8px;
-
   overflow: hidden;
+
+  background-color: color-mix(in srgb, var(--text-p, #64748b) 18%, transparent);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.12);
 }
 
 .fill {
+  position: relative;
   height: 100%;
-  border-radius: 8px;
+  min-width: 10px;   /* evita sumir quando o valor é muito baixo */
+  border-radius: inherit;
 
-  transition: width 0.4s ease;
+  /* cor padrão; se você passa a cor por inline style, ela sobrescreve */
+  background: linear-gradient(
+    90deg,
+    var(--toggle-color, #3b82f6),
+    var(--success, #22c55e)
+  );
+
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Brilho que passa pela barra */
+.fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shine 2.4s ease-in-out infinite;
+}
+
+@keyframes shine {
+  to { transform: translateX(___); }   /* dica: para onde o brilho deve ir? */
+}
+
+@media (min-width: 768px) {
+  .container { height: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill { transition: none; }
+  .fill::after { animation: none; }
 }

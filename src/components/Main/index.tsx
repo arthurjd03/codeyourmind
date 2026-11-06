@@ -4,7 +4,7 @@ import { RouterLink } from "../Routerlink";
 
 export function Main() {
   return (
-    <section>
+    <section className={styles.page}>
       <div className={styles.header}>
         <h2 className={styles.title}>Primeiros passos</h2>
         <p className={styles.subtitle}>

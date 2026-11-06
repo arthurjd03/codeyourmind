@@ -2,7 +2,7 @@
   /* Fundos em camadas profundas */
   --bg-main: #0b1329;
   --bg-secondary: #131f37;
-  --bg-finance: #1a2942;
+  --bg-finance: rgba(255, 255, 255, 0.06);
   --bg-finance-hover: #243656;
 
   /* Formulário e textos internos */
@@ -32,4 +32,5 @@
   --border-color: #ffff;
 
   --focus-color: #38bdf8;
+  --danger: rgb(247, 50, 50);
 }

@@ -84,9 +84,9 @@ export default function HabitsPage() {
           </header>
         </Border>
 
-      <section>
+      <>
         <BackButton />
-      </section>
+      </>
       
         <ul className={styles.list}>
           {habits.map((habit) => (

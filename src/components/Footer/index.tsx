@@ -20,20 +20,20 @@ export function Footer() {
             href="https://github.com/arthurjd03"
             aria-label="Github"
             target="_blank"
-            className={styles.social_github}
+            rel="noopener noreferrer"
           >
-            <p>Github</p>
+            Github
           </a>
           <a
             href="https://linkedin.com/in/arthurjose01"
             aria-label="LinkedIn"
             target="_blank"
-            className={styles.social_linkedin}
+            rel="noopener noreferrer"
           >
-            <p>Linkedin</p>
+            LinkedIn
           </a>
-          <a href="#" aria-label="Email" target="_blank">
-            <Mail size={20} />
+          <a href="mailto:arthurjosed1@gmail.com" aria-label="Email">
+            <Mail size={20} aria-hidden="true" />
           </a>
         </div>
       </div>

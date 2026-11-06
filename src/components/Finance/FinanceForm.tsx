@@ -65,14 +65,21 @@ export function FinanceForm({ onAdd }: Props) {
       <input
         placeholder="Descrição:"
         value={desc}
+        className={styles.description}
         onChange={(e) => setDesc(e.target.value)}
       />
 
-      <input placeholder="Valor:" value={valor} onChange={handleValorChange} />
+      <input
+        placeholder="Valor:"
+        value={valor}
+        className={styles.value}
+        onChange={handleValorChange}
+      />
 
       <input
         type="date"
         value={data}
+        className={styles.date}
         onChange={(e) => setData(e.target.value)}
       />
 

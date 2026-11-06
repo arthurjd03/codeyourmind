@@ -10,9 +10,9 @@ type Props = {
 export function FinanceSummary({ entrada, saida, saldo }: Props) {
   return (
     <div className={styles.container}>
-      <p>Entrada: {formatCurrencyBR(entrada)}</p>
-      <p>Saída: {formatCurrencyBR(Math.abs(saida))}</p>
-      <p>Saldo: {formatCurrencyBR(saldo)}</p>
+      <p className={styles.income}>Entrada: {formatCurrencyBR(entrada)}</p>
+      <p className={styles.expense}>Saída: {formatCurrencyBR(Math.abs(saida))}</p>
+      <p className={styles.balance}>Saldo: {formatCurrencyBR(saldo)}</p>
     </div>
   );
 }
