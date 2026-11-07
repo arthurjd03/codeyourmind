@@ -38,31 +38,49 @@
 
   margin-top: 10px;
 }
+.cancel,
+.confirm {
+  min-height: 46px;
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
+}
 
 .cancel {
-  background: #e5e7eb;
-  border: none;
-
-  padding: 6px 12px;
-
-  border-radius: 6px;
-
-  cursor: pointer;
+  color: #f87171; 
+  background: rgba(239, 68, 68, 0.12);
 }
+
+.cancel:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
 
 .confirm {
-  background-color: #ef4444;
-  color: white;
-
-  border: none;
-
-  padding: 6px 12px;
-
-  border-radius: 6px;
-
-  cursor: pointer;
+  color: #ffffff;
+  background: #10b981;
 }
 
+.confirm:hover {
+  background: #059669;
+}
+
+.cancel:active,
+.confirm:active {
+  transform: scale(0.97);
+}
+
+.cancel:focus-visible,
+.confirm:focus-visible,
+.fileButton:focus-within {
+  outline: 2px solid var(--toggle-color, #38bdf8);
+  outline-offset: 3px;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

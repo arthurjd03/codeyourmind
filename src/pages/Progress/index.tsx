@@ -18,7 +18,7 @@ export function ProgressPage() {
     setOpenCategory((prev) => (prev === category ? null : category));
   }
 
-  //  ÍCONES FORA DO MAP (melhor prática)
+  //  ÍCONES FORA DO MAP
   function renderIcon(category: GoalCategory) {
     if (category === "pessoal") return <User size={22} />;
     if (category === "profissional") return <Briefcase size={22} />;

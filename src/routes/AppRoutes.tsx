@@ -4,7 +4,7 @@ import { Home } from "../pages/Home";
 import Mission from "../pages/Mission";
 import ConfigPage from "../pages/Settings";
 import { CreateGoal } from "../pages/CreateGoal";
-import HabitsPage from "../pages/Habits";
+import { ReadingPage } from "../pages/Reading";
 import { ProgressPage } from "../pages/Progress";
 import { FinancePage } from "../pages/FinancePage";
 import { NotFound } from "../pages/NotFound";
@@ -23,7 +23,7 @@ export function MainRouter() {
 
         <Route path="/creategoal" element={<CreateGoal />} />
 
-        <Route path="/habits" element={<HabitsPage />} />
+        <Route path="/reading" element={<ReadingPage />} />
 
         <Route path="/progress" element={<ProgressPage />} />
 

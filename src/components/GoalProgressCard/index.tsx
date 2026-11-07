@@ -132,7 +132,7 @@ export function GoalProgressCard({ goal }: Props) {
           message={
             confirmType === "delete"
               ? "Tem certeza que deseja excluir esta meta?"
-              : "Tem certeza que deseja concluir esta meta?"
+              : "Deseja concluir esta meta?"
           }
           onCancel={() => setConfirmType(null)}
           onConfirm={() => {

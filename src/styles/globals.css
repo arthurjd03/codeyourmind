@@ -6,7 +6,6 @@
 /* Testes*/
 body            { outline: 3px solid red; }
 body > *        { outline: 3px solid orange; }
-body > * > *    { outline: 3px solid lime; }
 
 
 body {

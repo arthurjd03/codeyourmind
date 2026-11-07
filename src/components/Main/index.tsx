@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { Rocket, Target, ChartNoAxesCombined, Coins } from "lucide-react";
+import { Target, ChartNoAxesCombined, Coins, Book } from "lucide-react";
 import { RouterLink } from "../Routerlink";
 
 export function Main() {
@@ -26,10 +26,10 @@ export function Main() {
         </li>
 
         <li className={styles.card}>
-          <RouterLink to="/habits" aria-label="Crie habitos poderosos">
+          <RouterLink to="/reading" aria-label="Organize suas leituras">
             <span className={styles.number}>2</span>
-            <Rocket size={42} className={styles.toggle} />
-            <p>Crie hábitos saudáveis</p>
+            <Book size={42} className={styles.toggle} />
+            <p>Leitura</p>
             <small className={styles.description}>
               Pequenas ações diárias constroem grandes resultados.
             </small>
