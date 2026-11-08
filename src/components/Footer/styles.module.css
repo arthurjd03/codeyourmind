@@ -93,7 +93,7 @@
   text-decoration: none;
   color: var(--footer-text);
 
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--field-bg);
   border: 1px solid var(--footer-border);
   border-radius: 999px;
 

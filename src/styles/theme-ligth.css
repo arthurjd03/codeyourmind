@@ -1,7 +1,7 @@
 :root {
   /* Fundo principal aconchegante (tom bege-cafezado claro) */
   --bg-main: #dfdcd8;
-  
+
   /* Superfícies e cards em tom creme suave e encorpado */
   --bg-secondary: #f8f6f0;
   --bg-finance: #f8f6f0;
@@ -36,4 +36,24 @@
   --icon-default: #070707;
   --toggle-color: #226e97;
   --border-color: #226e97;
+
+  /* Campos de formulário */
+  --field-bg: #ffffff;
+  --field-border: rgba(26, 41, 66, 0.25);
+  --field-placeholder: #64748b;
+
+  /* Superfícies discretas */
+  --surface-muted: rgba(26, 41, 66, 0.07);
+  --surface-muted-hover: rgba(26, 41, 66, 0.13);
+
+  /* Linhas divisórias e fundo atrás do modal */
+  --divider: rgba(26, 41, 66, 0.12);
+  --scrim: rgba(26, 41, 66, 0.55);
+
+  /* Texto sobre botões com --toggle-color */
+  --on-accent: #ffffff;
+
+  /* Cores semânticas */
+  --success: #2e6648;
+  --danger: #8c2a2a;
 }

@@ -38,7 +38,7 @@ export function ProgressPage() {
     } as Record<GoalCategory, typeof goals>,
   );
 
-  // 🔥 RESUMO
+  // RESUMO
   const totalGoals = goals.length;
   const completedGoals = goals.filter((g) => g.progress >= 100).length;
 
@@ -54,11 +54,9 @@ export function ProgressPage() {
             </p>
           </header>
         </Border>
-        
-      <>
-        <BackButton />
-      </>
 
+        <BackButton />
+        
         <div className={styles.summary}>
           <div className={styles.summaryItem}>
             <strong>{totalGoals}</strong>

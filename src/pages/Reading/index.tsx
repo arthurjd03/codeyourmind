@@ -7,6 +7,7 @@ import styles from "./ReadingPage.module.css";
 import { MainTemplate } from "../../templates/MainTemplate";
 import { BackButton } from "../../components/BackButton";
 import { AddBookForm } from "../../components/AddBookForm";
+import { Border } from "../../components/Border";
 
 const TABS: { value: BookStatus; label: string }[] = [
   { value: "reading", label: "Lendo" },
@@ -15,7 +16,7 @@ const TABS: { value: BookStatus; label: string }[] = [
 ];
 
 export function ReadingPage() {
-  const { books, stats, addBook ,logSession, removeBook } = useBooks();
+  const { books, stats, addBook, logSession, removeBook } = useBooks();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<BookStatus>("reading");
   const [activeCategory, setActiveCategory] = useState("all");
@@ -30,29 +31,36 @@ export function ReadingPage() {
 
   return (
     <MainTemplate>
-      <BackButton />
       <div className={styles.page}>
-        <header className={styles.header}>
-          <h1>Minha leitura</h1>
-          <p>
-            Registre suas páginas, mantenha a ofensiva e construa sua estante.
-          </p>
-        </header>
-        <button type="button" className={styles.addButton} onClick={() => setIsFormOpen(true)}>
+        <Border>
+          <header className={styles.header}>
+            <h1>Minhas leituras</h1>
+            <p>
+              Registre suas páginas, mantenha a ofensiva e construa sua estante.
+            </p>
+          </header>
+        </Border>
+        <BackButton />
+
+        <button
+          type="button"
+          className={styles.addButton}
+          onClick={() => setIsFormOpen(true)}
+        >
           <Plus size={18} aria-hidden="true" />
           Adicionar livro
         </button>
 
         {isFormOpen && (
-          <AddBookForm 
-          onSubmit={(data, satus) => {
-            addBook(data, satus);
-            setIsFormOpen(false);
-          }}
-          onClose={() => setIsFormOpen(false)}
+          <AddBookForm
+            onSubmit={(data, satus) => {
+              addBook(data, satus);
+              setIsFormOpen(false);
+            }}
+            onClose={() => setIsFormOpen(false)}
           />
         )}
-      
+
         <div className={styles.summary}>
           <div className={styles.summaryItem}>
             <Flame size={20} aria-hidden="true" />

@@ -1,27 +1,45 @@
 .backButton {
   display: flex;
-  width: 35px;
-  height: 35px;
-
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  
   border-radius: 50%;
-  border: none;
-
-  background-color: var(--text-over-main);
-  color: var(--bg-secondary);
-
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-over-main);
+  
   cursor: pointer;
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
-  transition: transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  
+  /* Curva de transição (ease-out suave) */
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s ease, 
+              border-color 0.2s ease, 
+              box-shadow 0.2s ease;
 }
 
 .backButton:hover {
-  transform: scale(1.05);
+  /* Efeito: para mover levemente para a esquerda */
+  transform: translateX(-3px);
+  border-color: var(--toggle-color);
+  background-color: var(--bg-main);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+.backButton:active {
+  transform: translateX(-1px) scale(0.96);
+}
+
+.backButton:focus-visible {
+  outline: 2px solid var(--toggle-color, #38bdf8);
+  outline-offset: 3px;
+}
+
 @media (min-width: 768px) {
   .backButton {
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
   }
 }

@@ -1,6 +1,6 @@
 export function fileToCompressedDataUrl(
   file: File,
-  maxWidth = 400,
+  maxWidth = 600,
   quality = 0.8,
 ): Promise<string> {
   return new Promise((resolve, reject) => {

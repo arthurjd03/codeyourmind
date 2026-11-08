@@ -31,6 +31,19 @@
   --toggle-color: #226e97;
   --border-color: #ffff;
 
-  --focus-color: #38bdf8;
-  --danger: rgb(247, 50, 50);
+  /* Campos de formulário */
+  --field-bg: rgba(255, 255, 255, 0.04);
+  --field-border: rgba(255, 255, 255, 0.12);
+  --field-placeholder: #7c8aa0;
+
+  --surface-muted: rgba(255, 255, 255, 0.06);
+  --surface-muted-hover: rgba(255, 255, 255, 0.12);
+
+  --divider: rgba(255, 255, 255, 0.08);
+  --scrim: rgba(2, 6, 23, 0.72);
+
+  --on-accent: #0b1220;
+
+  --success: #22c55e;
+  --danger: #ef4444;
 }

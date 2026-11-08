@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, X } from "lucide-react";
 import type { Book, BookStatus } from "../../types/book";
 import { fileToCompressedDataUrl } from "../../utils/image";
 import styles from "./styles.module.css";
@@ -70,100 +70,128 @@ export function AddBookForm({ onSubmit, onClose }: AddBookFormProps) {
   return (
     <dialog ref={dialogRef} className={styles.dialog} onClose={onClose}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <h2 className={styles.heading}>Novo livro</h2>
+        <header className={styles.header}>
+          <h2 className={styles.heading}>Novo livro</h2>
+          <button
+            type="button"
+            className={styles.close}
+            aria-label="Fechar"
+            onClick={onClose}
+          >
+            <X size={20} aria-hidden="true" />
+          </button>
+        </header>
 
         {/* Capa: upload OU link */}
-        <div className={styles.coverPicker}>
-          {coverUrl ? (
-            <img
-              className={styles.coverPreview}
-              src={coverUrl}
-              alt="Prévia da capa"
-            />
-          ) : (
-            <div className={styles.coverPreview} aria-hidden="true">
-              <ImagePlus size={24} />
-            </div>
-          )}
+        <div className={styles.content}>
+          <div
+            className={styles.coverPicker}
+            style={
+              coverUrl
+                ? ({
+                    "--cover": `url(${JSON.stringify(coverUrl)})`,
+                  } as React.CSSProperties)
+                : undefined
+            }
+          >
+            {coverUrl ? (
+              <img
+                className={styles.coverPreview}
+                src={coverUrl}
+                alt="Prévia da capa"
+              />
+            ) : (
+              <div className={styles.coverPreview} aria-hidden="true">
+                <ImagePlus size={28} />
+              </div>
+            )}
 
-          <div className={styles.coverActions}>
-            <label className={styles.fileButton}>
-              Enviar imagem
+            <div className={styles.coverActions}>
+              <label className={styles.fileButton}>
+                Enviar imagem
+                <input
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  onChange={handleFile}
+                />
+              </label>
+
               <input
-                type="file"
-                accept="image/*"
-                hidden
-                onChange={handleFile}
+                type="url"
+                placeholder="ou cole o link da capa"
+                aria-label="Link da capa"
+                value={coverUrl?.startsWith("data:") ? "" : (coverUrl ?? "")}
+                onChange={(event) =>
+                  setCoverUrl(event.target.value || undefined)
+                }
+              />
+            </div>
+          </div>
+
+          <div className={styles.fields}>
+            <label className={styles.field}>
+              Título
+              <input
+                value={title}
+                placeholder="Ex: O poder do pensamento"
+                onChange={(event) => setTitle(event.target.value)}
+                required
               />
             </label>
 
-            <input
-              type="url"
-              placeholder="ou cole o link da capa"
-              aria-label="Link da capa"
-              value={coverUrl?.startsWith("data:") ? "" : (coverUrl ?? "")}
-              onChange={(event) => setCoverUrl(event.target.value || undefined)}
-            />
+            <label className={styles.field}>
+              Autor
+              <input
+                value={author}
+                onChange={(event) => setAuthor(event.target.value)}
+                placeholder="Ex: Robert C. Martin"
+                required
+              />
+            </label>
+
+            <label className={styles.field}>
+              Total de páginas
+              <input
+                type="number"
+                min="1"
+                value={totalPages}
+                onChange={(event) => setTotalPages(event.target.value)}
+                placeholder="Ex: 425"
+                required
+              />
+            </label>
+
+            <label className={styles.field}>
+              Categoria
+              <input
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+                placeholder="Ex: Aventura"
+                required
+              />
+            </label>
+
+            <label className={styles.field}>
+              Status inicial
+              <select
+                value={status}
+                onChange={(event) =>
+                  setStatus(event.target.value as BookStatus)
+                }
+              >
+                <option value="want-to-read">Quero ler</option>
+                <option value="reading">Lendo agora</option>
+                <option value="completed">Concluído</option>
+              </select>
+            </label>
+            {error && (
+              <p className={styles.error} role="alert">
+                {error}
+              </p>
+            )}
           </div>
         </div>
-
-        <label className={styles.field}>
-          Título
-          <input
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </label>
-
-        <label className={styles.field}>
-          Autor
-          <input
-            value={author}
-            onChange={(event) => setAuthor(event.target.value)}
-            placeholder="Ex: Robert C. Martin"
-            required
-          />
-        </label>
-
-        <label className={styles.field}>
-          Total de páginas
-          <input
-            type="number"
-            min="1"
-            value={totalPages}
-            onChange={(event) => setTotalPages(event.target.value)}
-            placeholder="Ex: 425"
-            required
-          />
-        </label>
-
-          
-        <label className={styles.field}>
-          Categoria
-          <input
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            placeholder="Ex: Aventura"
-            required
-          />
-        </label>
-
-        <label className={styles.field}>
-          Status inicial
-          <select
-            value={status}
-            onChange={(event) => setStatus(event.target.value as BookStatus)}
-          >
-            <option value="want-to-read">Quero ler</option>
-            <option value="reading">Lendo agora</option>
-            <option value="completed">Concluído</option>
-          </select>
-        </label>        
-        {error && (
-          <p className={styles.error} role="alert">
-            {error}
-          </p>
-        )}
 
         <div className={styles.actions}>
           <button type="button" className={styles.cancel} onClick={onClose}>
