@@ -7,7 +7,9 @@
 body            { outline: 3px solid red; }
 body > *        { outline: 3px solid orange; }
 
-
+body:has(dialog[open]) {
+  overflow: hidden;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg-main);

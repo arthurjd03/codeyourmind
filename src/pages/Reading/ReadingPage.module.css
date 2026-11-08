@@ -193,10 +193,18 @@
 
   .tabs { align-self: center; }
 
-  .list { flex-direction: row; flex-wrap: wrap; gap: 16px; }
-  .list > * { flex: 0 0 calc(50% - 8px); }
+  .list {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;   /* com poucos livros, eles ficam centralizados */
+    gap: 16px;
+  }
+
+  .list > * {
+    flex: 0 0 calc(50% - 8px);   /* 2 colunas */
+  }
 }
 
 @media (min-width: 1100px) {
-  .list > * { flex: 0 0 calc(___); }   /* dica: 3 colunas com gap de 16px */
+  .list > * { flex: 0 0 calc((100% - 32px) / 3) };  /* dica: 3 colunas com gap de 16px */
 }

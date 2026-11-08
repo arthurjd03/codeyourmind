@@ -8,7 +8,9 @@
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .cover {
@@ -17,7 +19,7 @@
   aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.28);
 }
 
 .coverFallback {
@@ -105,7 +107,11 @@
   height: 100%;
   min-width: 6px;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--toggle-color, #38bdf8), var(--success, #22c55e));
+  background: linear-gradient(
+    90deg,
+    var(--toggle-color, #38bdf8),
+    var(--success, #22c55e)
+  );
   transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -134,12 +140,15 @@
   border: 1px solid var(--field-border);
   border-radius: 12px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .sessionForm input:focus {
   border-color: var(--toggle-color, #38bdf8);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--toggle-color, #38bdf8) 22%, transparent);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--toggle-color, #38bdf8) 22%, transparent);
 }
 
 .sessionForm button {
@@ -148,15 +157,19 @@
   font-family: inherit;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0b1220;
+  color: var(--on-accent);
   background: var(--toggle-color, #38bdf8);
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
 }
 
-.sessionForm button:active { transform: scale(0.97); }
+.sessionForm button:active {
+  transform: scale(0.97);
+}
 
 .remove {
   margin-left: auto;
@@ -182,18 +195,83 @@
 @media (hover: hover) {
   .card:hover {
     transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--toggle-color, #38bdf8) 45%, transparent);
+    border-color: color-mix(
+      in srgb,
+      var(--toggle-color, #38bdf8) 45%,
+      transparent
+    );
   }
-  .sessionForm button:hover { filter: brightness(1.1); }
-  .remove:hover { background: color-mix(in srgb, var(--danger, #ef4444) 22%, transparent); }
+  .sessionForm button:hover {
+    filter: brightness(1.1);
+  }
+  .remove:hover {
+    background: color-mix(in srgb, var(--danger, #ef4444) 22%, transparent);
+  }
 }
 
 @media (min-width: 768px) {
-  .card { padding: 18px; gap: 18px; }
-  .cover { width: 96px; }
-  .title { font-size: 1.1rem; }
+  .card {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .cover {
+    width: min(58%, 150px);
+    border-radius: 12px;
+  }
+
+  .body {
+    width: 100%;
+    gap: 14px;
+  }
+
+  /* Cabeçalho centralizado, com título sempre ocupando 2 linhas
+     para os cards ficarem alinhados entre si */
+  .header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .badge {
+    align-self: center;
+    font-size: 1rem;
+  }
+
+  .title {
+    min-height: calc(2 * 1.25em);
+    font-size: 1.5rem;
+  }
+  .author {
+    font-size: 1.3rem;
+  }
+
+  /* Empurra progresso e formulário sempre para o pé do card */
+  .progress {
+    margin-top: auto;
+  }
+
+  /* A lixeira sai do rodapé e vai para o canto superior do card,
+     liberando a linha inteira para o "Li hoje" */
+  .remove {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    margin-left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card, .fill, .sessionForm input, .sessionForm button, .remove { transition: none; }
+  .card,
+  .fill,
+  .sessionForm input,
+  .sessionForm button,
+  .remove {
+    transition: none;
+  }
 }
